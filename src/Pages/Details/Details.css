@@ -1,0 +1,44 @@
+/* Details */
+.offset-header{
+  position: relative;
+  top:-50px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+.btn-search{
+  height: 80%;
+}
+.bg-disable{
+  background-color: lightgray !important;
+}
+
+
+/* Item */
+.card-details{
+  width: 18rem;
+}
+.border-card{
+  border: 1px rgba(0,0,0,.125) solid;
+  border-radius: 10px;
+}
+.accordion-custom{
+  border: 0px;
+}
+.accordion-button:not(.collapsed){
+  color: black !important;
+  background-color: white !important;
+  box-shadow: none !important;
+}
+.accordion-button:focus{
+  z-index: 3;
+  border-color: white !important;
+  outline: 0;
+  color: black !important;
+  box-shadow: none;
+}
+.accordion-button {
+  padding: 0px;
+  font-weight: bold;
+  color: black !important;
+}
