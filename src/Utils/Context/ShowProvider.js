@@ -8,8 +8,9 @@ const ShowContext = createContext({});
 
 export const ShowProvider = ({ children }) => {
   const [show, setShow] = useState(false);
+  const [driver, setDriver] = useState();
   return (
-    <ShowContext.Provider value={{ show, setShow }}>
+    <ShowContext.Provider value={{ show, setShow, driver, setDriver }}>
       {children}
     </ShowContext.Provider>
   );

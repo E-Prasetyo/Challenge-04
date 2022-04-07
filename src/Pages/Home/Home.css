@@ -8,3 +8,11 @@
 .btn-search{
   height: 80%;
 }
+.bg-CostumRed{
+ background-color: rgba(255, 0, 0, 0.4);;
+}
+
+/* Items */
+.contanier-card{
+  width: 18rem;
+}

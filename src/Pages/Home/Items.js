@@ -4,9 +4,9 @@ import { Container, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import serviceCar from '../../Service';
 import CardItem from './Card';
-import './Items.css';
+import './Home.css';
 
-const Item = ({search, tanggal}) => {
+const Item = ({search, driver}) => {
   let navigate = useNavigate();
   const [data, setData] = useState();
 
@@ -15,7 +15,7 @@ const Item = ({search, tanggal}) => {
     .then(([getCar])=>{
       setData(getCar)
     })
-  }, [tanggal])
+  }, [driver])
 
   const toRupiah = (value) =>{
     return new Intl.NumberFormat('id-ID', 
@@ -41,8 +41,7 @@ const Item = ({search, tanggal}) => {
     return navigate(`/detail/${id}`)
   }
 
-  // console.log(data);
-  const listCar = data?.filter(item => item.status === false).map((item) => {
+  const listCar = data?.filter(item => item.status.toString() === driver)?.map((item) => {
     return (
       <CardItem 
         key={item.id}
@@ -57,8 +56,8 @@ const Item = ({search, tanggal}) => {
     <>
       <Container>
         <Row>
-        {search !== true && ""}
-        {search === true && listCar}
+        {(search === false || driver === undefined) &&  ""}
+        {(search === true && driver) && listCar}
         </Row>
       </Container>
     </>

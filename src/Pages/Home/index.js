@@ -9,16 +9,20 @@ import './Home.css'
 import useShow from '../../Utils/Hooks/useShow';
 
 const Home = () => {
-  const { show, setShow } = useShow();
-  const [dateSearch, setDateSearch] = useState("");
+  const { show, setShow, driver, setDriver } = useShow();
+  // const [dateSearch, setDateSearch] = useState(dr);
   const { register, handleSubmit, control, watch, formState: { errors } } = useForm();
   const resultSubmit = data =>{
-    setShow(true);
-    setDateSearch(data.Tanggal)
+    if(data.tipeDriver){
+      setShow(true);
+      setDriver(data.tipeDriver)
+    }else{
+      alert("fill parameter Tpi Driver")
+    }
     // console.log("data", data);
   } 
 
-  console.log(show)
+  // console.log(show);
   return (
     <>
       {/* <Header search={show} /> */}
@@ -31,16 +35,16 @@ const Home = () => {
                 <Controller
                   control={control} 
                   name="tipeDriver"                                           
-                  defaultValue=""                                                                        
+                  defaultValue={driver||""}                                                                        
                   render={({ field: { onChange, value, ref }}) => (
                     <Form.Select
                       onChange={onChange}
                       name="tipeDriver"
                       ref={ref}
                       value={value}>
-                        <option>Open this select menu</option>
-                        <option value="1">Dengan Supir</option>
-                        <option value="2" className="text-danger bg-warning">
+                        <option value="" disabled>Open this select menu</option>
+                        <option value="true">Dengan Supir</option>
+                        <option value="false" className="text-danger bg-CostumRed">
                           Tanpa Supir  (Lepas Kunci)
                         </option>
                     </Form.Select>
@@ -122,7 +126,7 @@ const Home = () => {
           </Row>
         </Form>
       </Container>
-      <Item search={show} tanggal={dateSearch}/>
+      <Item search={show} driver={driver}/>
     </>
   )
 }

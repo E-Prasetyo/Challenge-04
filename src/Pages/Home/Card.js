@@ -12,7 +12,7 @@ const CardItem = ({data, toRupiah, passenger, handleChose }) => {
     <Col xs="4">
         <Card className="container-card">
           <Card.Body>
-            <Card.Img className="p-3" variant="top" src={image} />
+            <Card.Img className="p-3" variant="top" src={image} height="180px" />
             <Card.Text><small>{name}/{category}</small></Card.Text>
             <Card.Text><b>{toRupiah(price)} / hari</b></Card.Text>
             <Card.Text>
